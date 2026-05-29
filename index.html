@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Сонячна електростанція</title>
+
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/869/869869.png" type="image/png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Solar Energy</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-label="Відкрити меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">Про об'єкт</a></li>
+          <li class="nav-item"><a class="nav-link" href="#monitor">Моніторинг</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Галерея</a></li>
+          <li class="nav-item"><a class="nav-link" href="#advantages">Переваги</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacts">Контакти</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Сонячна електростанція</h1>
+    <p>Система моніторингу енергетичного об'єкта з динамічним оновленням даних у реальному часі.</p>
+    <br>
+    <a href="#monitor" class="btn btn-custom">Відкрити моніторинг</a>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Про електростанцію</h2>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <p class="about-text">
+            Сонячна електростанція — це сучасний енергетичний комплекс, який використовує відновлюване джерело енергії
+            для генерації електрики без шкідливих викидів.
+            <br><br>
+            Панелі перетворюють сонячне випромінювання в електричний струм, який надходить у мережу або використовується
+            локально.
+            <br><br>
+            Система моніторингу дозволяє відстежувати ключові параметри в реальному часі.
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row g-4">
+            <div class="col-12">
+              <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200&auto=format&fit=crop"
+                class="img-fluid rounded shadow about-img" alt="Сонячна електростанція" loading="lazy">
+            </div>
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop"
+                class="img-fluid rounded shadow about-img" alt="Енергетичний комплекс" loading="lazy">
+            </div>
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200&auto=format&fit=crop"
+                class="img-fluid rounded shadow about-img" alt="Чиста енергія" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="monitor">
+    <div class="container">
+      <h2 class="section-title">Динамічний моніторинг</h2>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="monitor-card">
+            <h3>Потужність</h3>
+            <div class="monitor-value" id="power">100 МВт</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="monitor-card">
+            <h3>Напруга</h3>
+            <div class="monitor-value" id="voltage">35 кВ</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="monitor-card">
+            <h3>Температура</h3>
+            <div class="monitor-value" id="temp">25°C</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-10">
+          <h3 class="text-center mb-4" style="color: #facc15;">Зведена таблиця технічних параметрів</h3>
+          <div class="table-responsive">
+            <table class="table table-dark table-striped table-hover text-center align-middle rounded-3 overflow-hidden">
+              <thead>
+                <tr>
+                  <th scope="col" style="color: #facc15;">Назва параметру</th>
+                  <th scope="col" style="color: #facc15;">Поточне значення (Динамічне)</th>
+                  <th scope="col" style="color: #facc15;">Допустима норма</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Генерація потужності</td>
+                  <td><span id="table-power" class="fw-bold text-info">100 МВт</span></td>
+                  <td>80 – 130 МВт</td>
+                </tr>
+                <tr>
+                  <td>Напруга на інверторі</td>
+                  <td><span id="table-voltage" class="fw-bold text-info">35 кВ</span></td>
+                  <td>30 – 40 кВ</td>
+                </tr>
+                <tr>
+                  <td>Температура масиву панелей</td>
+                  <td><span id="table-temp" class="fw-bold text-info">25°C</span></td>
+                  <td>від -20°C до +35°C</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <div id="status" class="status online">Система працює</div>
+        <br><br>
+        <button class="btn btn-custom" id="updateBtn" aria-label="Оновити дані моніторингу">
+          Оновити дані
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Галерея</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200&auto=format&fit=crop"
+              alt="Сонячні панелі" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Сонячні панелі</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop"
+              alt="Енергетичний комплекс" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Енергетичний комплекс</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200&auto=format&fit=crop"
+              alt="Чиста енергія" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Чиста енергія</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="advantages">
+    <div class="container">
+      <h2 class="section-title">Чому обирають нас</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="adv-card">
+            <div class="adv-icon">🔋</div>
+            <h5 class="adv-title">Енергонезалежність</h5>
+            <p>Зменшення рахунків до 90%.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="adv-card">
+            <div class="adv-icon">🌍</div>
+            <h5 class="adv-title">Екологічність</h5>
+            <p>Скорочення викидів CO₂ до 45 тонн на рік.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="adv-card">
+            <div class="adv-icon">📊</div>
+            <h5 class="adv-title">Моніторинг 24/7</h5>
+            <p>Контроль у реальному часі.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="container">
+      <h2 class="section-title">Наші контакти</h2>
+      <div class="row g-5 justify-content-center">
+        <div class="col-md-5">
+          <div class="contact-box">
+            <div class="contact-icon">📍</div>
+            <h4 class="contact-title">Адреса</h4>
+            <p class="contact-text">
+              м. Київ, вул. Сонячна, 25<br>
+              Бізнес-центр "Енергія"
+            </p>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="contact-box">
+            <div class="contact-icon">📞</div>
+            <h4 class="contact-title">Телефони</h4>
+            <p class="contact-text">
+              +38 (044) 123-45-67<br>
+              +38 (097) 888-99-00
+            </p>
+            <hr class="divider">
+            <div class="contact-icon">✉️</div>
+            <h4 class="contact-title">Email</h4>
+            <p class="contact-text">
+              info@solar-energy.ua<br>
+              support@solar-energy.ua
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Solar Energy | JavaScript Dynamic Monitoring
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const power = document.getElementById('power');
+    const voltage = document.getElementById('voltage');
+    const temp = document.getElementById('temp');
+    
+    const tablePower = document.getElementById('table-power');
+    const tableVoltage = document.getElementById('table-voltage');
+    const tableTemp = document.getElementById('table-temp');
+
+    const status = document.getElementById('status');
+    const updateBtn = document.getElementById('updateBtn');
+
+    function updateData() {
+      const randomPower = Math.floor(Math.random() * 50) + 80;
+      const randomVoltage = Math.floor(Math.random() * 10) + 30;
+      const randomTemp = Math.floor(Math.random() * 20) + 20;
+
+      power.textContent = randomPower + ' МВт';
+      voltage.textContent = randomVoltage + ' кВ';
+      temp.textContent = randomTemp + '°C';
+
+      tablePower.textContent = randomPower + ' МВт';
+      tableVoltage.textContent = randomVoltage + ' кВ';
+      tableTemp.textContent = randomTemp + '°C';
+
+      if (randomTemp > 35) {
+        status.textContent = 'Перегрів системи';
+        status.classList.remove('online');
+        status.classList.add('warning');
+      } else {
+        status.textContent = 'Система працює';
+        status.classList.remove('warning');
+        status.classList.add('online');
+      }
+    }
+
+    updateBtn.addEventListener('click', updateData);
+    setInterval(updateData, 5000);
+  </script>
+
+</body>
+</html>
