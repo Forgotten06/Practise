@@ -28,6 +28,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">Про об'єкт</a></li>
           <li class="nav-item"><a class="nav-link" href="#monitor">Моніторинг</a></li>
+          <li class="nav-item"><a class="nav-link" href="#registration">Реєстрація об'єкта</a></li>
           <li class="nav-item"><a class="nav-link" href="#gallery">Галерея</a></li>
           <li class="nav-item"><a class="nav-link" href="#advantages">Переваги</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacts">Контакти</a></li>
@@ -148,6 +149,42 @@
     </div>
   </section>
 
+  <section id="registration" style="background-color: #1e293b; color: white; padding: 60px 0;">
+    <div class="container">
+      <h2 class="section-title text-center" style="color: #facc15;">Реєстрація об'єкта генерації / споживача</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form action="/register" method="POST" class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" style="color: #facc15;">Ім'я споживача / Назва фірми</label>
+              <input type="text" class="form-control" name="name" placeholder="Організація або ПІБ" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" style="color: #facc15;">Тип об'єкта</label>
+              <select class="form-select" name="type">
+                <option value="Сонячна електростанція">Сонячна електростанція (Генерація)</option>
+                <option value="Вітрогенератор">Вітрогенератор (Генерація)</option>
+                <option value="Приватний будинок">Приватний будинок (Споживач)</option>
+                <option value="Промислове підприємство">Промислове підприємство (Споживач)</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label" style="color: #facc15;">Адреса об'єкта</label>
+              <input type="text" class="form-control" name="address" placeholder="м. Київ, вул. Енергетиків, 12" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label" style="color: #facc15;">Параметри підключення та потужність</label>
+              <textarea class="form-control" name="params" rows="3" placeholder="Наприклад: Проектна потужність 50 кВт, ТУ №12345, 3 фази." required></textarea>
+            </div>
+            <div class="col-12 text-center mt-4">
+              <button type="submit" class="btn btn-custom">Надіслати дані на сервер</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="gallery">
     <div class="container">
       <h2 class="section-title">Галерея</h2>
@@ -185,7 +222,7 @@
 
   <section id="advantages">
     <div class="container">
-      <h2 class="section-title">Чому обирають нас</h2>
+      <h2 class="section-title">Чоу обирають нас</h2>
       <div class="row g-4">
         <div class="col-md-4">
           <div class="adv-card">
