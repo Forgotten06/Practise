@@ -5,22 +5,17 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Middleware для обробки URL-закодованих даних (з HTML-форм)
 app.use(express.urlencoded({ extended: true }));
 
-// Роздача статичних файлів (щоб підвантажувався ваш style.css, картинки тощо)
 app.use(express.static(__dirname));
 
-// Головна сторінка сайту
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Обробка POST-запиту від форми реєстрації
 app.post('/register', (req, res) => {
     const { name, type, address, params } = req.body;
     
-    // Створюємо об'єкт з новими даними та додаємо штамп часу реєстрації
     const newRecord = {
         id: Date.now(),
         name,
@@ -34,7 +29,6 @@ app.post('/register', (req, res) => {
 
     let database = [];
 
-    // Перевіряємо, чи існує вже файл бази даних JSON
     if (fs.existsSync(filePath)) {
         try {
             const fileContent = fs.readFileSync(filePath, 'utf8');
@@ -45,13 +39,10 @@ app.post('/register', (req, res) => {
         }
     }
 
-    // Додаємо новий об'єкт у масив
     database.push(newRecord);
 
-    // Записуємо оновлений масив назад у файл з гарними відступами
     fs.writeFileSync(filePath, JSON.stringify(database, null, 2), 'utf8');
 
-    // Відправляємо користувачу гарну сторінку-підтвердження
     res.send(`
         <!DOCTYPE html>
         <html lang="uk">
@@ -72,7 +63,6 @@ app.post('/register', (req, res) => {
     `);
 });
 
-// Запуск сервера
 app.listen(PORT, () => {
     console.log(`====================================================`);
     console.log(` Сервер успішно запущено!`);

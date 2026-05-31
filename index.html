@@ -3,27 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Сонячна електростанція</title>
-
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/869/869869.png" type="image/png">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#">Solar Energy</a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-        aria-label="Відкрити меню">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">Про об'єкт</a></li>
@@ -59,7 +51,6 @@
             Система моніторингу дозволяє відстежувати ключові параметри в реальному часі.
           </p>
         </div>
-
         <div class="col-lg-7">
           <div class="row g-4">
             <div class="col-12">
@@ -83,24 +74,23 @@
   <section id="monitor">
     <div class="container">
       <h2 class="section-title">Динамічний моніторинг</h2>
-
       <div class="row g-4 mb-5">
         <div class="col-md-4">
           <div class="monitor-card">
             <h3>Потужність</h3>
-            <div class="monitor-value" id="power">100 МВт</div>
+            <div class="monitor-value" id="power">Завантаження...</div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="monitor-card">
             <h3>Напруга</h3>
-            <div class="monitor-value" id="voltage">35 кВ</div>
+            <div class="monitor-value" id="voltage">Завантаження...</div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="monitor-card">
             <h3>Температура</h3>
-            <div class="monitor-value" id="temp">25°C</div>
+            <div class="monitor-value" id="temp">Завантаження...</div>
           </div>
         </div>
       </div>
@@ -120,17 +110,17 @@
               <tbody>
                 <tr>
                   <td>Генерація потужності</td>
-                  <td><span id="table-power" class="fw-bold text-info">100 МВт</span></td>
+                  <td><span id="table-power" class="fw-bold text-info">Завантаження...</span></td>
                   <td>80 – 130 МВт</td>
                 </tr>
                 <tr>
                   <td>Напруга на інверторі</td>
-                  <td><span id="table-voltage" class="fw-bold text-info">35 кВ</span></td>
+                  <td><span id="table-voltage" class="fw-bold text-info">Завантаження...</span></td>
                   <td>30 – 40 кВ</td>
                 </tr>
                 <tr>
                   <td>Температура масиву панелей</td>
-                  <td><span id="table-temp" class="fw-bold text-info">25°C</span></td>
+                  <td><span id="table-temp" class="fw-bold text-info">Завантаження...</span></td>
                   <td>від -20°C до +35°C</td>
                 </tr>
               </tbody>
@@ -140,11 +130,9 @@
       </div>
 
       <div class="text-center mt-5">
-        <div id="status" class="status online">Система працює</div>
+        <div id="status" class="status online">Підключення до сервера...</div>
         <br><br>
-        <button class="btn btn-custom" id="updateBtn" aria-label="Оновити дані моніторингу">
-          Оновити дані
-        </button>
+        <button class="btn btn-custom" id="updateBtn">Оновити дані</button>
       </div>
     </div>
   </section>
@@ -154,10 +142,10 @@
       <h2 class="section-title text-center" style="color: #facc15;">Реєстрація об'єкта генерації / споживача</h2>
       <div class="row justify-content-center">
         <div class="col-md-8">
-          <form action="/register" method="POST" class="row g-3">
+          <form id="registrationForm" class="row g-3">
             <div class="col-md-6">
               <label class="form-label" style="color: #facc15;">Ім'я споживача / Назва фірми</label>
-              <input type="text" class="form-control" name="name" placeholder="Організація або ПІБ" required>
+              <input type="text" class="form-control" name="name" required>
             </div>
             <div class="col-md-6">
               <label class="form-label" style="color: #facc15;">Тип об'єкта</label>
@@ -170,11 +158,11 @@
             </div>
             <div class="col-12">
               <label class="form-label" style="color: #facc15;">Адреса об'єкта</label>
-              <input type="text" class="form-control" name="address" placeholder="м. Київ, вул. Енергетиків, 12" required>
+              <input type="text" class="form-control" name="address" required>
             </div>
             <div class="col-12">
               <label class="form-label" style="color: #facc15;">Параметри підключення та потужність</label>
-              <textarea class="form-control" name="params" rows="3" placeholder="Наприклад: Проектна потужність 50 кВт, ТУ №12345, 3 фази." required></textarea>
+              <textarea class="form-control" name="params" rows="3" required></textarea>
             </div>
             <div class="col-12 text-center mt-4">
               <button type="submit" class="btn btn-custom">Надіслати дані на сервер</button>
@@ -222,7 +210,7 @@
 
   <section id="advantages">
     <div class="container">
-      <h2 class="section-title">Чоу обирають нас</h2>
+      <h2 class="section-title">Чому обирають нас</h2>
       <div class="row g-4">
         <div class="col-md-4">
           <div class="adv-card">
@@ -294,41 +282,76 @@
     const power = document.getElementById('power');
     const voltage = document.getElementById('voltage');
     const temp = document.getElementById('temp');
-    
     const tablePower = document.getElementById('table-power');
     const tableVoltage = document.getElementById('table-voltage');
     const tableTemp = document.getElementById('table-temp');
-
     const status = document.getElementById('status');
     const updateBtn = document.getElementById('updateBtn');
+    const registrationForm = document.getElementById('registrationForm');
 
-    function updateData() {
-      const randomPower = Math.floor(Math.random() * 50) + 80;
-      const randomVoltage = Math.floor(Math.random() * 10) + 30;
-      const randomTemp = Math.floor(Math.random() * 20) + 20;
+    async function updateData() {
+      try {
+        const response = await fetch('/api/monitoring');
+        if (!response.ok) throw new Error('Помилка відповіді сервера');
+        
+        const data = await response.json();
 
-      power.textContent = randomPower + ' МВт';
-      voltage.textContent = randomVoltage + ' кВ';
-      temp.textContent = randomTemp + '°C';
+        power.textContent = data.power + ' МВт';
+        voltage.textContent = data.voltage + ' кВ';
+        temp.textContent = data.temp + '°C';
 
-      tablePower.textContent = randomPower + ' МВт';
-      tableVoltage.textContent = randomVoltage + ' кВ';
-      tableTemp.textContent = randomTemp + '°C';
+        tablePower.textContent = data.power + ' МВт';
+        tableVoltage.textContent = data.voltage + ' кВ';
+        tableTemp.textContent = data.temp + '°C';
 
-      if (randomTemp > 35) {
-        status.textContent = 'Перегрів системи';
-        status.classList.remove('online');
-        status.classList.add('warning');
-      } else {
-        status.textContent = 'Система працює';
-        status.classList.remove('warning');
-        status.classList.add('online');
+        if (data.temp > 35) {
+          status.textContent = 'Перегрів системи';
+          status.classList.remove('online');
+          status.classList.add('warning');
+        } else {
+          status.textContent = 'Система працює';
+          status.classList.remove('warning');
+          status.classList.add('online');
+        }
+      } catch (error) {
+        status.textContent = 'Втрачено зв\'язок з сервером';
+        status.classList.remove('online', 'warning');
+        status.style.backgroundColor = '#ef4444';
       }
     }
 
+    registrationForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(registrationForm);
+      const formObject = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formObject)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert(result.message);
+          registrationForm.reset();
+        } else {
+          alert('Помилка реєстрації: ' + result.error);
+        }
+      } catch (error) {
+        alert('Помилка з\'єднання з сервером.');
+      }
+    });
+
     updateBtn.addEventListener('click', updateData);
+    
+    updateData(); 
     setInterval(updateData, 5000);
   </script>
-
 </body>
 </html>
