@@ -43,6 +43,16 @@ app.post('/register', (req, res) => {
 
     fs.writeFileSync(filePath, JSON.stringify(database, null, 2), 'utf8');
 
+app.get('/api/monitoring', (req, res) => {
+    const data = {
+        power: Math.floor(Math.random() * 50) + 80,
+        voltage: Math.floor(Math.random() * 10) + 30,
+        temp: Math.floor(Math.random() * 20) + 20
+    };
+    
+    res.json(data);
+});
+
     res.send(`
         <!DOCTYPE html>
         <html lang="uk">
