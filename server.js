@@ -5,15 +5,25 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
+app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
-
-app.use(express.static(__dirname));
+app.use(express.static(__dirname)); 
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.post('/register', (req, res) => {
+app.get('/api/monitoring', (req, res) => {
+    const data = {
+        power: Math.floor(Math.random() * 50) + 80,
+        voltage: Math.floor(Math.random() * 10) + 30,
+        temp: Math.floor(Math.random() * 20) + 20
+    };
+    
+    res.json(data);
+});
+
+app.post('/api/register', (req, res) => {
     const { name, type, address, params } = req.body;
     
     const newRecord = {
@@ -26,7 +36,6 @@ app.post('/register', (req, res) => {
     };
 
     const filePath = path.join(__dirname, 'data.json');
-
     let database = [];
 
     if (fs.existsSync(filePath)) {
@@ -34,48 +43,24 @@ app.post('/register', (req, res) => {
             const fileContent = fs.readFileSync(filePath, 'utf8');
             database = JSON.parse(fileContent);
         } catch (error) {
-            console.error("Помилка читання JSON. Створюємо новий масив.", error);
+            console.error("Помилка читання JSON:", error);
             database = [];
         }
     }
 
     database.push(newRecord);
 
-    fs.writeFileSync(filePath, JSON.stringify(database, null, 2), 'utf8');
-
-app.get('/api/monitoring', (req, res) => {
-    const data = {
-        power: Math.floor(Math.random() * 50) + 80,
-        voltage: Math.floor(Math.random() * 10) + 30,
-        temp: Math.floor(Math.random() * 20) + 20
-    };
-    
-    res.json(data);
-});
-
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="uk">
-        <head>
-            <meta charset="UTF-8">
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-            <title>Успішна реєстрація</title>
-        </head>
-        <body style="background-color: #0f172a; color: white; display: flex; height: 100vh; justify-content: center; align-items: center;">
-            <div class="text-center p-5 rounded shadow" style="background-color: #1e293b; border: 1px solid #334155;">
-                <h2 class="text-success mb-3">✓ Об'єкт успішно зареєстровано!</h2>
-                <p class="text-muted">Дані надійно збережено в локальний JSON файл на сервері.</p>
-                <hr style="border-color: #334155;">
-                <a href="/" class="btn btn-warning mt-2">Повернутися на головну</a>
-            </div>
-        </body>
-        </html>
-    `);
+    try {
+        fs.writeFileSync(filePath, JSON.stringify(database, null, 2), 'utf8');
+        res.json({ message: "Об'єкт успішно зареєстровано!" });
+    } catch (error) {
+        res.status(500).json({ error: "Не вдалося зберегти дані на сервері." });
+    }
 });
 
 app.listen(PORT, () => {
     console.log(`====================================================`);
     console.log(` Сервер успішно запущено!`);
-    console.log(` Локальна адреса для тестування: http://localhost:${PORT}`);
+    console.log(` Відкрийте: http://localhost:${PORT}`);
     console.log(`====================================================`);
-}); 
+});
